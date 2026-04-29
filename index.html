@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCN Impact Map 2026</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+Mono:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>205 universities ran 262 news–academic partnerships in 2025</h1>
+
+  <div id="map">
+    <div id="legend">
+      <div class="legend-item">
+        <span class="legend-dot legend-dot--green"></span>Existing programs
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot legend-dot--yellow"></span>New programs in 2025
+      </div>
+    </div>
+  </div>
+
+  <div id="sidebar" aria-hidden="true">
+    <button id="sidebar-close" aria-label="Close sidebar">&times;</button>
+    <div id="sidebar-content"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

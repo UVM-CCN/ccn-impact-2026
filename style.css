@@ -1,0 +1,218 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Lora", Roboto, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  flex-shrink: 0;
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: 700;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  z-index: 500;
+}
+
+#map {
+  flex: 1;
+  z-index: 0;
+}
+
+/* ── Map markers ── */
+.map-marker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.map-marker--green  { background: #4caf50; }
+.map-marker--yellow { background: #ffc107; }
+
+/* ── Legend ── */
+#legend {
+  position: absolute;
+  top: 24px;
+  right: 12px;
+  z-index: 500;
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+  font-size: 13px;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-item + .legend-item {
+  margin-top: 6px;
+}
+
+.legend-dot {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.legend-dot--green  { background: #4caf50; }
+.legend-dot--yellow { background: #ffc107; }
+
+/* ── Sidebar ── */
+#sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 360px;
+  max-width: 90vw;
+  background: #fff;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.18);
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#sidebar.open {
+  transform: translateX(0);
+}
+
+#sidebar-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: #555;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+#sidebar-close:hover {
+  background: #f0f0f0;
+  color: #111;
+}
+
+#sidebar-content {
+  overflow-y: auto;
+  padding: 20px 20px 32px;
+  flex: 1;
+}
+
+/* ── University header ── */
+.sidebar-university {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  padding-right: 36px;       /* clear the close button */
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+/* ── Program cards ── */
+.program-count {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 14px;
+}
+
+.program-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 0px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.program-card:last-child {
+  margin-bottom: 0;
+}
+
+.program-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.program-meta {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.program-meta:last-child {
+  margin-bottom: 0;
+}
+
+/* ── NAP status pill ── */
+.nap-pill {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  vertical-align: middle;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.nap-pill--green {
+  background: #e6f4ea;
+  color: #2e7d32;
+}
+
+.nap-pill--yellow {
+  background: #fff8e1;
+  color: #b45309;
+}
+
+.program-meta span {
+  font-weight: 500;
+  color: #333;
+}
+
+.program-structure {
+  font-size: 14px;
+  color: #3f3f3f;
+  line-height: 1.5;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}

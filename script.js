@@ -1,4 +1,4 @@
-const map = L.map("map").setView([38.5, -96], 4);
+const map = L.map("map").setView([39.5, -108], 3);
 
 var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
 	minZoom: 0,
@@ -13,7 +13,7 @@ const sidebar = document.getElementById("sidebar");
 const sidebarContent = document.getElementById("sidebar-content");
 const closeBtn = document.getElementById("sidebar-close");
 
-const GREEN_STATUSES = new Set(["Continuing", "Ended", "Paused"]);
+const GREEN_STATUSES = new Set(["Continuing"]);
 
 function napColor(status) {
   return GREEN_STATUSES.has(status) ? "green" : "yellow";
@@ -22,7 +22,7 @@ function napColor(status) {
 function markerIcon(color) {
   return L.divIcon({
     className: "",
-    html: `<div class="map-marker map-marker--${color}"></div>`,
+    html: `<div class="map-marker" style="background:${color}"></div>`,
     iconSize: [14, 14],
     iconAnchor: [7, 7],
     tooltipAnchor: [0, -7],
@@ -80,6 +80,14 @@ Papa.parse("data/ccn-survey-2026-geocoded.csv", {
   download: true,
   skipEmptyLines: true,
   complete({ data }) {
+    const HIDE_FROM_MAP_STATUSES = new Set(["Ended", "Paused"]);
+
+    // remove rows if "NAP Status" is "Ended" or "Paused"
+    data = data.filter(row => {
+      const status = row["NAP Status"]?.trim();
+      return !HIDE_FROM_MAP_STATUSES.has(status);
+    });
+
     // Group rows by institution name
     const byUniversity = new Map();
     for (const row of data) {
@@ -97,7 +105,7 @@ Papa.parse("data/ccn-survey-2026-geocoded.csv", {
     // Place one marker per university
     for (const [name, { lat, lon, programs }] of byUniversity) {
       const allGreen = programs.every((p) => GREEN_STATUSES.has(p["NAP Status"]?.trim()));
-      const color = allGreen ? "green" : "yellow";
+      const color = allGreen ? "#144734" : "#ffc107";
       const marker = L.marker([lat, lon], { icon: markerIcon(color) }).addTo(map);
       marker.bindTooltip(name, { direction: "top", offset: [0, -7] });
       marker.on("click", () => openSidebar(name, programs));

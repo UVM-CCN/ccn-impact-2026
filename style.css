@@ -19,7 +19,7 @@ body {
 h1 {
   flex-shrink: 0;
   padding: 16px 24px;
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 700;
   background: #fff;
   border-bottom: 1px solid #e8e8e8;
@@ -43,11 +43,64 @@ h1 {
 .map-marker--green  { background: #4caf50; }
 .map-marker--yellow { background: #ffc107; }
 
+/* ── Stat cards ── */
+#stat-cards {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  z-index: 500;
+  display: flex;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+  text-align: center;
+  min-width: 120px;
+}
+
+.stat-pct {
+  font-size: 32px;
+  font-weight: 700;
+  color: #f4b701;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  #stat-cards {
+    top: auto;
+    right: auto;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    justify-content: center;
+    width: max-content;
+    max-width: calc(100vw - 24px);
+  }
+
+  .stat-card {
+    min-width: 0;
+    flex: 1;
+  }
+}
+
 /* ── Legend ── */
 #legend {
   position: absolute;
-  top: 24px;
-  right: 12px;
+  top: 12px;
+  left: 62px;
   z-index: 500;
   background: #fff;
   border-radius: 6px;
@@ -76,7 +129,7 @@ h1 {
   border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.legend-dot--green  { background: #4caf50; }
+.legend-dot--green  { background: #144734; }
 .legend-dot--yellow { background: #ffc107; }
 
 /* ── Sidebar ── */

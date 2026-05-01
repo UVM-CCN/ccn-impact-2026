@@ -15,7 +15,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>205 universities ran 282 news–academic partnerships in 2025</h1>
+    <h1>
+      205 universities operate 282 news–academic partnerships in 2025-2026
+      <span id="info-wrap">
+        <button id="info-btn" aria-label="About this data" aria-expanded="false">i</button>
+        <div id="info-tooltip" role="tooltip" hidden>
+          Data includes all existing programs from calendar year 2025 as well as 20 "emerging" news-academic partnerships starting 2026.
+        </div>
+      </span>
+      <a id="download-btn" href="data/public-ccn-survey-20260501.csv" download>Get the data</a>
+    </h1>
   <div id="map">
     <div id="stat-cards">
       <div class="stat-card">
@@ -42,6 +51,13 @@
     <button id="sidebar-close" aria-label="Close sidebar">&times;</button>
     <div id="sidebar-content"></div>
   </div>
+
+  <footer style="margin: auto 0; text-align: center; padding: 10px">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <img src="images/UVM_Logo_Primary_Horiz_G.png" width="100px" alt="UVMLogo"> 
+      <span style="font-size: 18px">| Center for Community News</span>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

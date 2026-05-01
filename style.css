@@ -24,6 +24,84 @@ h1 {
   background: #fff;
   border-bottom: 1px solid #e8e8e8;
   z-index: 500;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#download-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #144734;
+  border: 2px solid #144734;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+#download-btn:hover {
+  background: #144734;
+  color: #fff;
+}
+
+#info-btn {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  background: none;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
+  line-height: 1;
+  cursor: pointer;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+#info-btn:hover,
+#info-btn[aria-expanded="true"] {
+  color: #144734;
+}
+
+#info-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+#info-tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 600;
+}
+
+#info-tooltip[hidden] {
+  display: none;
 }
 
 #map {
@@ -60,13 +138,13 @@ h1 {
   padding: 12px 16px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
   text-align: center;
-  min-width: 120px;
+  min-width: 200px;
 }
 
 .stat-pct {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
-  color: #f4b701;
+  color: #eab310;
   line-height: 1;
   margin-bottom: 6px;
 }
@@ -93,6 +171,31 @@ h1 {
   .stat-card {
     min-width: 0;
     flex: 1;
+  }
+
+  h1 {
+    font-size: 20px;
+    padding-right: 24px;
+  }
+
+  #download-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    justify-content: center;
+    padding: 14px;
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    border-radius: 0;
+    font-size: 15px;
+    background: #f9f9f9;
+    z-index: 1100;
+  }
+
+  #download-btn:hover {
+    background: #144734;
   }
 }
 
@@ -186,7 +289,7 @@ h1 {
 
 /* ── University header ── */
 .sidebar-university {
-  font-size: 17px;
+  font-size: 21px;
   font-weight: 700;
   color: #111;
   padding-right: 36px;       /* clear the close button */
@@ -215,7 +318,7 @@ h1 {
 }
 
 .program-name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #1a1a1a;
   margin-bottom: 6px;

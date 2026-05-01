@@ -9,6 +9,21 @@ const sidebar = document.getElementById("sidebar");
 const sidebarContent = document.getElementById("sidebar-content");
 const closeBtn = document.getElementById("sidebar-close");
 
+const infoBtn = document.getElementById("info-btn");
+const infoTooltip = document.getElementById("info-tooltip");
+
+infoBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const open = infoBtn.getAttribute("aria-expanded") === "true";
+  infoBtn.setAttribute("aria-expanded", String(!open));
+  infoTooltip.hidden = open;
+});
+
+document.addEventListener("click", () => {
+  infoBtn.setAttribute("aria-expanded", "false");
+  infoTooltip.hidden = true;
+});
+
 const GREEN_STATUSES = new Set(["Continuing"]);
 
 function napColor(status) {
@@ -71,7 +86,7 @@ function escHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-Papa.parse("data/ccn-survey-2026-geocoded.csv", {
+Papa.parse("data/ccn-survey-20260501-geocoded.csv", {
   header: true,
   download: true,
   skipEmptyLines: true,
